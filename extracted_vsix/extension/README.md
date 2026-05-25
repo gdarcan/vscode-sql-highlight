@@ -8,6 +8,7 @@ SQL Highlight is a Visual Studio Code extension that detects SQL inside JavaScri
 - Highlights SQL keywords such as SELECT, WITH, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP, and transaction statements.
 - Handles multiline template strings where SQL starts on a new line.
 - Supports JavaScript interpolation inside template literals (for example `${value}`) while keeping SQL highlighting active.
+- Gets colors from your theme and works very well with bracket colorization and bracket guides.
 
 ## Language Coverage
 
@@ -22,7 +23,7 @@ Note: this extension does not automatically support every programming language. 
 
 ## Screenshots
 
-Current SQL colorization sample:
+Output SQL colorization sample:
 
 ![After (colorized)](./images/sql_example.png)
 

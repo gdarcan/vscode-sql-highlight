@@ -1,8 +1,8 @@
 {
   "name": "sql-highlight",
   "displayName": "SQL Highlight",
-  "description": "Highlight SQL inside JavaScript and TypeScript string literals",
-  "version": "0.2.1",
+  "description": "Highlight SQL inside string delimiters in most programming languages",
+  "version": "0.2.2",
   "publisher": "gokseldarcan",
   "author": "Göksel Darcan",
   "icon": "images/logo.png",
