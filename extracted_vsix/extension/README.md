@@ -35,13 +35,6 @@ const q = "SELECT id, name FROM users WHERE id = 1";
 // Appears as a normal JS string
 ```
 
-After (colorized with SQL Highlight):
-
-```js
-const q = "SELECT id, name FROM users WHERE id = 1";
-// Colorized as SQL: SELECT, FROM, WHERE and SQL identifiers/operators
-```
-
 Before (multiline template without SQL embedding):
 
 ```js
@@ -51,17 +44,6 @@ FROM users
 WHERE status = ${status}
 `;
 // Entire content appears like a regular template string
-```
-
-After (colorized, multiline SQL starts on a new line):
-
-```js
-const q = `
-SELECT id, name
-FROM users
-WHERE status = ${status}
-`;
-// Colorized as SQL even when the first keyword starts on the next line
 ```
 
 No activation keyword is required. You do not need markers like `/*sql*/` for inference to work.
