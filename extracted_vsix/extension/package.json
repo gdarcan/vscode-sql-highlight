@@ -1,0 +1,49 @@
+{
+  "name": "sql-highlight",
+  "displayName": "SQL Highlight",
+  "description": "Highlight SQL inside JavaScript and TypeScript string literals",
+  "version": "0.2.0",
+  "publisher": "gokseldarcan",
+  "icon": "images/logo.png",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "grammars": [
+      {
+        "path": "./syntaxes/inference.tmLanguage.json",
+        "scopeName": "source.js.inference",
+        "injectTo": [
+          "source.js",
+          "source.jsx",
+          "source.js.jsx",
+          "source.ts",
+          "source.tsx"
+        ],
+        "embeddedLanguages": {
+          "source.sql.embedded.js": "sql"
+        }
+      }
+    ]
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "sql",
+    "highlight",
+    "string",
+    "syntax"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gdarcan/vscode-sql-highlight.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gdarcan/vscode-sql-highlight/issues",
+    "email": "gdarcan@gmail.com"
+  }
+}
