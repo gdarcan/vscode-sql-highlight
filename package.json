@@ -1,13 +1,18 @@
 {
-  "name": "js-string-syntax",
-  "displayName": "JS String Syntax",
-  "description": "Syntax highlighting for HTML and SQL inside JavaScript and TypeScript strings",
-  "version": "0.1.7",
-  "publisher": "ericgomez",
+  "name": "sql-highlight",
+  "displayName": "SQL Highlight",
+  "description": "Highlight SQL inside JavaScript and TypeScript string literals",
+  "version": "0.2.0",
+  "publisher": "gokseldarcan",
+  "author": "Göksel Darcan",
   "icon": "images/logo.png",
   "license": "MIT",
   "engines": {
     "vscode": "^1.97.0"
+  },
+  "scripts": {
+    "build": "vsce package",
+    "install-ext": "code --install-extension sql-highlight-0.2.0.vsix --force"
   },
   "categories": [
     "Programming Languages"
@@ -19,59 +24,20 @@
         "scopeName": "source.js.inference",
         "injectTo": [
           "source.js",
-          "source.ts"
+          "source.jsx",
+          "source.js.jsx",
+          "source.ts",
+          "source.tsx"
         ],
         "embeddedLanguages": {
-          "text.html.embedded.js": "html",
           "source.sql.embedded.js": "sql"
         }
-      },
-      {
-        "path": "./syntaxes/selector.tmLanguage.json",
-        "scopeName": "source.js.selector",
-        "injectTo": [
-          "source.js",
-          "source.ts",
-          "source.jsx",
-          "source.tsx"
-        ]
-      },
-      {
-        "path": "./syntaxes/js-xml.tmLanguage.json",
-        "scopeName": "source.js.xml",
-        "injectTo": [
-          "source.js",
-          "source.ts",
-          "source.jsx",
-          "source.tsx"
-        ]
-      },
-      {
-        "path": "./syntaxes/js-html.tmLanguage.json",
-        "scopeName": "source.js.html",
-        "injectTo": [
-          "source.js",
-          "source.ts",
-          "source.jsx",
-          "source.tsx"
-        ]
-      },
-      {
-        "path": "./syntaxes/js-sql.tmLanguage.json",
-        "scopeName": "source.js.sql",
-        "injectTo": [
-          "source.js",
-          "source.ts",
-          "source.jsx",
-          "source.tsx"
-        ]
       }
     ]
   },
   "keywords": [
     "javascript",
     "typescript",
-    "html",
     "sql",
     "highlight",
     "string",
@@ -79,10 +45,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ericgomez/vscode-js-string-syntax.git"
+    "url": "https://github.com/gdarcan/vscode-sql-highlight.git"
   },
   "bugs": {
-    "url": "https://github.com/ericgomez/vscode-js-string-syntax/issues",
-    "email": "eric.gomez.sanchez@gmail.com"
+    "url": "https://github.com/gdarcan/vscode-sql-highlight/issues",
+    "email": "gdarcan@gmail.com"
   }
 }

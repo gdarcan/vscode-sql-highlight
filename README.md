@@ -1,50 +1,86 @@
-# JS String Syntax
+# SQL Highlight
 
-**JS String Syntax** is a Visual Studio Code extension that highlights HTML, XML/SVG, and SQL embedded in JavaScript and TypeScript strings. The extension automatically infers content by default, while also supporting explicit language markers to identify and apply syntax highlighting.
+SQL Highlight is a Visual Studio Code extension that detects SQL inside JavaScript and TypeScript string literals and applies SQL syntax highlighting.
 
-## Features
+## What It Does
 
-- **Automatic Language Detection**: Infers and highlights HTML, XML/SVG, and SQL content in JavaScript and TypeScript strings without requiring explicit markers.
-- **Explicit Language Markers**: Supports comment-based language markers (e.g., `/*html*/`, `/*xml*/`, `/*sql*/`) for explicit language specification when needed.
-- **Compatibility with Other Editors**: The use of language markers does not interfere with syntax in other editors or IDEs.
-- **Multiple String Types**: Works with all JavaScript/TypeScript string types including single quotes (`'`), double quotes (`"`), and template literals (`` ` ``).
+- Detects SQL in regular strings and template literals.
+- Highlights SQL keywords such as SELECT, WITH, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP, and transaction statements.
+- Handles multiline template strings where SQL starts on a new line.
+- Supports JavaScript interpolation inside template literals (for example `${value}`) while keeping SQL highlighting active.
 
-### Current Support
+## Language Coverage
 
-- **HTML** (auto-detected and with explicit marker)
-- **XML/SVG** (auto-detected and with explicit marker)
-- **SQL** (auto-detected and with explicit marker)
+Current injection targets are:
 
-### Example
+- JavaScript (`source.js`)
+- JavaScript React (`source.jsx`, `source.js.jsx`)
+- TypeScript (`source.ts`)
+- TypeScript React (`source.tsx`)
 
-#### HTML Example
+Note: this extension does not automatically support every programming language. TextMate injections are scope-based, so each language must be explicitly targeted.
 
-![html](./images/html_example.png)
+## Screenshots
 
-#### SQL Example
+Current SQL colorization sample:
 
-![sql](./images/sql_example.png)
+![After (colorized)](./images/sql_example.png)
 
-Visual Studio Code will apply HTML, and SQL syntax highlighting to the content of the strings, improving readability and streamlining development.
+Recommended filenames:
 
-### Customization
+- `images/before.png`
+- `images/after-colorized.png`
 
-Some themes will require customizing the appearance of embedded code by adding TextMate scopes to your VS Code configuration. Below is a basic configuration for the `settings.json` file, but you can add more scopes as needed for your specific customization requirements:
+## Examples
+
+Before (plain string, no SQL tokenization):
+
+```js
+const q = "SELECT id, name FROM users WHERE id = 1";
+// Appears as a normal JS string
+```
+
+After (colorized with SQL Highlight):
+
+```js
+const q = "SELECT id, name FROM users WHERE id = 1";
+// Colorized as SQL: SELECT, FROM, WHERE and SQL identifiers/operators
+```
+
+Before (multiline template without SQL embedding):
+
+```js
+const q = `
+SELECT id, name
+FROM users
+WHERE status = ${status}
+`;
+// Entire content appears like a regular template string
+```
+
+After (colorized, multiline SQL starts on a new line):
+
+```js
+const q = `
+SELECT id, name
+FROM users
+WHERE status = ${status}
+`;
+// Colorized as SQL even when the first keyword starts on the next line
+```
+
+No activation keyword is required. You do not need markers like `/*sql*/` for inference to work.
+
+## Customization
+
+If your theme needs stronger contrast for embedded SQL, add token color rules in your `settings.json`.
 
 ```json
 "editor.tokenColorCustomizations": {
     "textMateRules": [
         {
             "scope": [
-                "string.template.js text.html.embedded.js",
-                "string.quoted.double.js text.html.embedded.js",
-                "string.quoted.single.js text.html.embedded.js",
-                "string.quoted.single.js punctuation.definition.tag.begin",
-                "string.quoted.single.js punctuation.definition.tag.end",
-                "string.quoted.double.js punctuation.definition.tag.begin",
-                "string.quoted.double.js punctuation.definition.tag.end",
-                "string.template.js punctuation.definition.tag.begin",
-                "string.template.js punctuation.definition.tag.end"
+                "source.sql.embedded.js"
             ],
             "settings": {
                 "foreground": "#ABB2BF"
@@ -54,21 +90,20 @@ Some themes will require customizing the appearance of embedded code by adding T
 }
 ```
 
-You can modify the hex color values to match your preferred color scheme.
+## Development
 
-### Installation
+Build VSIX:
 
-1. Open Visual Studio Code.
-2. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X on Mac).
-3. Search for **JS String Syntax**.
-4. Click "Install."
+```bash
+npm run build
+```
 
-### Feedback
+Install local VSIX:
 
-Your feedback is invaluable! If you encounter any issues or have suggestions for improvements, please [report them](https://github.com/ericgomez/vscode-js-string-syntax/issues) here.
+```bash
+npm run install-ext
+```
 
-### License
+## License
 
-This extension is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
-
-Enjoy coding with **JS String Syntax**! 🚀
+MIT. See [LICENSE](./LICENSE).
