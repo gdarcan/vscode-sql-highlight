@@ -2,7 +2,7 @@
   "name": "sql-highlight",
   "displayName": "SQL Highlight",
   "description": "Highlight SQL inside JavaScript and TypeScript string literals",
-  "version": "0.2.0",
+  "version": "0.2.3",
   "publisher": "gokseldarcan",
   "icon": "images/logo.png",
   "license": "MIT",

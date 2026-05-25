@@ -4,6 +4,7 @@ SQL Highlight is a Visual Studio Code extension that detects SQL inside JavaScri
 
 ## What It Does
 
+- No activation keyword is required. You do not need markers like /*sql*/ or --sql for inference to work.
 - Detects SQL in regular strings and template literals.
 - Highlights SQL keywords such as SELECT, WITH, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP, and transaction statements.
 - Handles multiline template strings where SQL starts on a new line.
@@ -46,8 +47,6 @@ WHERE status = ${status}
 `;
 // Entire content appears like a regular template string
 ```
-
-No activation keyword is required. You do not need markers like `/*sql*/` for inference to work.
 
 ## Customization
 
